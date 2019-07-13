@@ -1,13 +1,14 @@
+import dotenv from "dotenv";
 import express from "express";
 const app = express();
-const port = 8080;
+import routes from "./routes";
 
-// define a route handler for the default home page
-app.get( "/", ( req, res ) => {
-    res.send( "Hello world!" );
-} );
+dotenv.config();
+const port = process.env.SERVER_PORT;
 
-// start the Express server
+routes(app);
+
+// start the server
 app.listen( port, () => {
     console.log( `server started at http://localhost:${ port }` );
 } );
