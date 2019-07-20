@@ -1,3 +1,4 @@
 - Docker may need more config to automatically sync after edit. Currently, it's designed to run only (not for active development)
 - Deliberately avoided jsdoc for many functions/methods for the sake of time
 - Incoming data validation/validation middlewares are not added for the sake of time
+- Dup id fields (one with underscore); in real life we want to avoid one (mostly like _id)

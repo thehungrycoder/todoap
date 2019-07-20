@@ -1,12 +1,12 @@
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import express from "express";
-// import mongoConnect from "./mongoose";
+import mongooseConnect from "./mongoose";
 const app = express();
 import routes from "./routes";
 
 dotenv.config();
-// mongoConnect();
+mongooseConnect();
 const port = process.env.SERVER_PORT;
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
