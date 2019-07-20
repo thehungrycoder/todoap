@@ -4,6 +4,7 @@ import {DateTime} from "luxon";
 export const isRelativeDate = (dateString: string) => {
     return _.includes(["today", "tomorrow"], dateString);
 };
+
 export const parseStringToDate = (dateString: string) => {
     switch (dateString) {
         case "today":
