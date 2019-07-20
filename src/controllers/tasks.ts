@@ -1,4 +1,4 @@
-import _ from "lodash";
+import {getListFilters, getParsedDueDate} from "../helpers";
 import Task from "../models/task";
 
 /**
@@ -8,7 +8,10 @@ import Task from "../models/task";
  * @returns {Promise<void>}
  */
 const list = async (req: any, res: any) => {
-    const tasks = await Task.find().select("_id name");
+    const filters = getListFilters(req.query);
+
+    const tasks = await Task.find(filters)
+        .select("_id name");
     res.send(tasks);
 };
 
@@ -25,9 +28,9 @@ const get = async (req: any, res: any) => {
 };
 
 const create = async (req: any, res: any) => {
-    const {name, description, due_date, status = "pending"} = req.body;
+    const {name, description, due_date: dueDate = "today", status = "pending"} = req.body;
 
-    const task = new Task({name, description, dueDate: due_date, status});
+    const task = new Task({name, description, dueDate: getParsedDueDate(dueDate), status});
     await task.save();
 
     res.status(201).send({
@@ -35,15 +38,25 @@ const create = async (req: any, res: any) => {
     });
 };
 
+/**
+ * Update status field
+ * @param req
+ * @param res
+ * @returns {Promise<void>}
+ */
 const update = async (req: any, res: any) => {
     const taskId = req.params.id;
 
-    const updateValues = _.pick(req.body, ["name", "description", "due_date", "status"]);
-    const task = await Task.findOneAndUpdate({_id: taskId}, {$set: updateValues}, {new: true});
+    const {status} = req.body;
+    if (!status) {
+        res.status(422).send("Provide new status for the task");
+    }
+
+    const task = await Task.findOneAndUpdate({_id: taskId}, {$set: {status}}, {new: true});
 
     try {
-        const result = await task.save();
-        res.send(task);
+        const newTask = await task.save();
+        res.send(newTask);
 
     } catch (err) {
         if (!task) {

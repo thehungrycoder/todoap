@@ -69,6 +69,11 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.136.tgz#413e85089046b865d960c9ff1d400e04c31ab60f"
   integrity sha512-0GJhzBdvsW2RUccNHOBkabI8HZVdOXmXbXhuKlDEd5Vv12P7oAVGfomGp3Ne21o5D/qu1WmthlNKFaoZJJeErA==
 
+"@types/luxon@^1.15.2":
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-1.15.2.tgz#528f11f7d6dc08cec0445d4bea8065a5bb6989b2"
+  integrity sha512-zHPoyVrLvNaiMRYdhmh88Rn489ZgAgbc6iLxR5Yi0VCNfeNYHcszbhJV2vDHLNrVGy35BPtWBRn4OP2F9BBvFw==
+
 "@types/mime@*":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.1.tgz#dc488842312a7f075149312905b5e3c0b054c79d"
@@ -1243,6 +1248,11 @@ lru-cache@^4.0.1:
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
+
+luxon@^1.17.1:
+  version "1.17.1"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-1.17.1.tgz#7261aae6f7a2cc3cf83cbe24c62335cf3a48caad"
+  integrity sha512-+xo7Pj54xwyEzlMdXzDqm60Ewqbn0QqACwfIo6so9M1idUtYQrD7/PHjEFQQmLCBu8wUe2IDC2jrcJJ3Buk4Pw==
 
 make-dir@^1.0.0:
   version "1.3.0"
