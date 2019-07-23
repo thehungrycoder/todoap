@@ -3,3 +3,4 @@
 - Incoming data validation/validation middlewares are not added for the sake of time
 - Dup id fields (one with underscore); in real life we want to avoid one (mostly like _id)
 - Currently to mark a task completed, we'll just use the PUT /tasks/<id> for now. Also we'll need to validate value of the field, along with current status of the object (like if already completed, raise error)
+- committed .env for aid of running it though not recommended.
