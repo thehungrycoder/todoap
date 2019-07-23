@@ -1,8 +1,8 @@
 import * as express from "express";
 import {create, destroy, get, list, update} from "../controllers/tasks";
 
-const route = (app: express.Application) => {
-    app.get("/", (req: any, res) => {
+const route = (app) => {
+    app.get("/", (req, res) => {
         res.send("Hello world!");
     });
 

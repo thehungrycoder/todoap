@@ -7,7 +7,7 @@ import Task from "../models/task";
  * @param res
  * @returns {Promise<void>}
  */
-const list = async (req: any, res: any) => {
+const list = async (req, res) => {
     const filters = getListFilters(req.query);
 
     const tasks = await Task.find(filters)
@@ -21,13 +21,13 @@ const list = async (req: any, res: any) => {
  * @param res
  * @returns {Promise<void>}
  */
-const get = async (req: any, res: any) => {
+const get = async (req, res) => {
     const taskId = req.params.id;
     const task = await Task.findOne({_id: taskId});
     res.send(task);
 };
 
-const create = async (req: any, res: any) => {
+const create = async (req, res) => {
     const {name, description, due_date: dueDate = "today", status = "pending"} = req.body;
 
     const task = new Task({name, description, dueDate: getParsedDueDate(dueDate), status});
@@ -44,7 +44,7 @@ const create = async (req: any, res: any) => {
  * @param res
  * @returns {Promise<void>}
  */
-const update = async (req: any, res: any) => {
+const update = async (req, res) => {
     const taskId = req.params.id;
 
     const {status} = req.body;
@@ -68,7 +68,7 @@ const update = async (req: any, res: any) => {
     }
 };
 
-const destroy = async (req: any, res: any) => {
+const destroy = async (req, res) => {
     const taskId = req.params.id;
     const task = await Task.findOneAndDelete({_id: taskId});
 

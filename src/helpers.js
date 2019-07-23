@@ -1,11 +1,11 @@
 import _ from "lodash";
 import {DateTime} from "luxon";
 
-export const isRelativeDate = (dateString: string) => {
+export const isRelativeDate = (dateString) => {
     return _.includes(["today", "tomorrow"], dateString);
 };
 
-export const parseStringToDate = (dateString: string) => {
+export const parseStringToDate = (dateString) => {
     switch (dateString) {
         case "today":
             return DateTime.local();
@@ -16,7 +16,7 @@ export const parseStringToDate = (dateString: string) => {
     }
 };
 
-export const getParsedDueDate = (dateString: string) => {
+export const getParsedDueDate = (dateString) => {
     const parsed = parseStringToDate(dateString);
 
     if (isRelativeDate(dateString)) {
@@ -26,13 +26,13 @@ export const getParsedDueDate = (dateString: string) => {
     }
 };
 
-export const getListFilters = (query: any) => {
+export const getListFilters = (query) => {
 
-    const byStatus = (status: string) => {
+    const byStatus = (status) => {
         return {status};
     };
 
-    const byDueDate = (dueDate: string) => {
+    const byDueDate = (dueDate) => {
         const isRelative = isRelativeDate(dueDate);
         const parsed = parseStringToDate(dueDate);
 

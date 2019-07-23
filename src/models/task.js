@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import TaskInterface from "./task.interface";
 
 const taskSchema = new mongoose.Schema({
     description: String,
@@ -12,6 +11,6 @@ taskSchema.set("toJSON", {
     virtuals: true
 });
 
-const Task = mongoose.model<TaskInterface & mongoose.Document>("Task", taskSchema);
+const Task = mongoose.model("Task", taskSchema);
 
 export default Task;
