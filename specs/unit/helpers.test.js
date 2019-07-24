@@ -1,4 +1,4 @@
-import * as helpers from '../helpers';
+import * as helpers from '../../src/helpers';
 import {DateTime} from 'luxon';
 
 jest.mock('luxon', () => {
