@@ -2,7 +2,7 @@
 - Run the docker compose with the following command
 
 ```
-docker-compose up
+docker-compose up --build
 ```
 
 This will spin up multiple docker containers
@@ -99,7 +99,22 @@ DELETE /tasks<id>
 
 
 ### Testing
+
+Run Unit Tests
+
 ```
-npm test
+npm run test:unit
 ```  
   
+  
+Run Functional Tests
+
+```
+npm run test:func
+```  
+  
+
+### Running without docker
+You may need to add a development.json or local.json in config dir and put the correct mongo URL. Then
+- yarn install
+- npm run dev
